@@ -1,0 +1,13 @@
+<h1>Train Model</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload and Train</button>
+</form>
+
+<h2>Previous Results</h2>
+<ul>
+    {% for result in results %}
+        <li>Accuracy: {{ result.accuracy }} ({{ result.created_at }})</li>
+    {% endfor %}
+</ul>
